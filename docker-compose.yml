@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: django_demo_web
+    ports:
+      - "8000:8000"
+    environment:
+      # add your env vars here if needed
+      - DJANGO_SETTINGS_MODULE=mysite.settings
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
